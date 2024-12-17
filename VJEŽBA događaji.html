@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Događaji u JavaScriptu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">Dobrodošli!</h1>
+    <button id="changeColorBtn">Promijeni boju pozadine</button>
+    <button id="changeTextBtn">Promijeni tekst</button>
+
+    <script>
+        
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    newColor =  r * 0.299 + g * 0.587 + b * 0.114
+    if(newColor > 186) {
+        newColor = 'black';
+    } else {
+        newColor = 'white';
+    }
+    return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        
+        document.getElementById('changeColorBtn').addEventListener('click', function() {
+            document.body.style.backgroundColor = getRandomColor();
+        });
+
+        
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            document.getElementById('heading').innerText = "Tekst je promijenjen!";
+        });
+    </script>
+
+</body>
+</html>
